@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<title>The average</title>
+		<meta charset="UTF-8">
+		<script>
+			function calculate() {
+				var arrOfNumbers = document.getElementById("numbers").value.split(',');
+				var result = average(arrOfNumbers[0], arrOfNumbers[1], arrOfNumbers[2]);
+				document.getElementById("result").value = result;
+			}
+		
+			function average(A, B, C) {
+				var result;
+				
+				if(!(A != B && B != C && C != A)) {
+					alert ("Error")
+				} else if(A > B && A > C) {
+					if(B > C){
+						result = B;
+					} else {
+						result = C;
+					}
+				} else if(A > B || A > C) {
+					result = A;
+				} else if(B > C) {
+					result = C;
+				} else {
+					result = B;
+				}
+				
+				return result;
+			}
+		</script>
+	</head>
+	<body>
+		<p>Введите три числа через запятую без пробелов: </p>
+		<br />
+		<input  id="numbers" type="text" placeholder="Ex.: 1,2,3" />
+		<br />
+		<br />
+		<button onclick="calculate();">Result: </button>
+		<input id="result" type="text" readonly="readonly" />
+		
+	</body>
+</html>
